@@ -1,0 +1,81 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Effect 1</title>
+    
+  </head>
+  <style>
+
+    /* 1st card */
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+       
+    }
+
+    .container{
+        /* width: 100%; */
+        position: relative;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: all 1s;
+        background-color: black;
+        border-radius: 30px;
+    }
+    .container img{
+        width: 500px;
+        transition: all 1s;
+
+    }
+    .container .content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: all 1s;
+        transform: translateY(100%);
+        color: white;
+        background-color: black;
+    }
+
+    .container:hover .content{
+         transform: translateX(0);
+        
+    }
+
+    .container:hover img{
+        transform: translateX(100%);
+    }
+
+
+
+
+
+   
+
+    
+  </style>
+  <body>
+    
+    <section class="container">
+      <img src="https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg" />
+      <article class="content">
+        <h1>Welcome To The Real World 😉</h1>
+        <h4>Write Your Content Here 🥂</h4>
+      </article>
+    </section>
+  </body>
+</html>
