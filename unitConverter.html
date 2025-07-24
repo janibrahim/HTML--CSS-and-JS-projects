@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unit Converter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f0f4f8;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #0a5d5d;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-container {
+        background-color: #0da3a3cc;
+        border-radius: 12px;
+        padding: 30px;
+        width: 90%;
+        max-width: 600px;
+        color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+      }
+
+      label {
+        font-size: 18px;
+        width: 80px;
+      }
+
+      input[type="number"] {
+        width: 100px;
+        padding: 6px 10px;
+        border: 1px solid #fff;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .equals {
+        font-size: 22px;
+        font-weight: bold;
+        margin: 0 10px;
+      }
+
+      @media (max-width: 500px) {
+        .row {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+
+        label {
+          width: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Unit Converter</h2>
+
+    <div class="main-container">
+
+
+
+      <div class="row">
+        <label for="feet">Feet</label>
+        <input type="number" id="feet" value="1" />
+
+        <span class="equals">=</span>
+
+        <label for="inches">Inches</label>
+        <input type="number" id="inches" value="12" />
+      </div>
+
+
+
+    </div> 
+
+    <script>
+        let feet=document.getElementById('feet');
+        let inches=document.getElementById('inches');
+
+        feet.addEventListener('input',function(){
+            let f=this.value;
+            let i=f*12;
+
+            inches.value=i;
+        })
+        inches.addEventListener('input',function(){
+            let i=this.value;
+            let f=i/12;
+
+            feet.value=f;
+        })
+    </script>
+
+  </body>
+</html>

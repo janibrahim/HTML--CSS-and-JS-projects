@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acordian</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      font-size: 20px;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    }
+
+    .accordian {
+      width: 600px;
+      background-color: rgb(208, 216, 213);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .accordian li {
+      list-style: none;
+      padding: 10px 5px;
+    }
+
+    .accordian li label {
+      display: flex;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    label::after {
+      content: "+";
+      position: absolute;
+        /* display: flex; */
+        
+      right: 500px;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+    .content {
+      overflow: hidden;
+      max-height: 0;
+      padding: 1px;
+      transition: max-height 0.5s, padding 0.5s;
+    }
+
+    .accordian input[type="radio"]:checked ~ .content {
+      max-height: 500px;
+      padding: 10px 15px;
+    }
+  </style>
+  <body>
+    <div class="accordian">
+      <h3>Frequently Asked Questions</h3>
+      <li>
+        <input type="radio" name="accordian" id="first"  />
+        <label for="first">What is Web?</label>
+        <p class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+          architecto quisquam optio ea laudantium ratione inventore, mollitia
+          error officia quaerat, illo, ipsam blanditiis necessitatibus odio.
+          Minima vel magnam hic accusantium!
+        </p>
+      </li>
+      <li>
+        <input type="radio" name="accordian" id="second" />
+        <label for="second">What is Graphic?</label>
+        <p class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+          architecto quisquam optio ea laudantium ratione inventore, mollitia
+          error officia quaerat, illo, ipsam blanditiis necessitatibus odio.
+          Minima vel magnam hic accusantium!
+        </p>
+      </li>
+      <li>
+        <input type="radio" name="accordian" id="third" />
+        <label for="third">What is Video?</label>
+        <p class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+          architecto quisquam optio ea laudantium ratione inventore, mollitia
+          error officia quaerat, illo, ipsam blanditiis necessitatibus odio.
+          Minima vel magnam hic accusantium!
+        </p>
+      </li>
+    </div>
+  </body>
+  <script></script>
+</html>

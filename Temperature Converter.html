@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: #f0f4f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #0a5d5d;
+      }
+
+      .converter-container {
+        background-color: #0da3a3cc;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 500px;
+        color: white;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      input {
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        font-size: 16px;
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        outline: none;
+      }
+
+      input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      #reset {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        background-color: white;
+        color: #0da3a3;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      #reset:hover {
+        background-color: #e0f7f7;
+        color: #0a5d5d;
+      }
+
+      .github-link {
+        padding: 10px 20px;
+        border-radius: 8px;
+        background-color: white;
+        color: #0da3a3;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+        transition: 0.3s ease;
+        display: inline-block;
+      }
+
+      .github-link:hover {
+        background-color: #e0f7f7;
+        color: #0a5d5d;
+      }
+
+      .btn-row {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 500px) {
+        .converter-container {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🌡️ Temperature Converter</h2>
+
+    <div class="converter-container">
+      <div class="input-group">
+        <label for="celsius">Celsius (°C)</label>
+        <input type="number" id="celsius" placeholder="Enter Celsius" />
+      </div>
+      <div class="input-group">
+        <label for="fahrenheit">Fahrenheit (°F)</label>
+        <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit" />
+      </div>
+      <div class="input-group">
+        <label for="kelvin">Kelvin (K)</label>
+        <input type="number" id="kelvin" placeholder="Enter Kelvin" />
+      </div>
+
+      <div class="btn-row">
+        <button id="reset">Reset</button>
+        <a href="https://github.com/yourusername/your-repo" target="_blank" class="github-link">View on GitHub</a>
+      </div>
+    </div>
+
+    <script>
+      let celcius = document.getElementById("celsius");
+      let faren = document.getElementById("fahrenheit");
+      let kelvin = document.getElementById("kelvin");
+      let resetBtn = document.getElementById("reset");
+
+      celcius.addEventListener("input", function () {
+        let c = parseFloat(this.value);
+        let f = (c * 9) / 5 + 32;
+        let k = c + 273.15;
+
+        faren.value = f;
+        kelvin.value = k;
+      });
+
+      faren.addEventListener("input", function () {
+        let f = parseFloat(this.value);
+        let c = ((f - 32) * 5) / 9;
+        let k = c + 273.15;
+
+        celcius.value = c;
+        kelvin.value = k;
+      });
+
+      kelvin.addEventListener("input", function () {
+        let k = parseFloat(this.value);
+        let c = k - 273.15;
+        let f = (c * 9) / 5 + 32;
+
+        celcius.value = c;
+        faren.value = f;
+      });
+
+      resetBtn.addEventListener("click", function () {
+        celcius.value = "";
+        faren.value = "";
+        kelvin.value = "";
+      });
+    </script>
+  </body>
+</html>
