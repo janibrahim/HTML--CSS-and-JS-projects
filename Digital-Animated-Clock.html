@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Static Digital Clock</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at center, #1f1f1f, #0d0d0d);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .clock-box {
+      background: #2a2a2a;
+      border-radius: 20px;
+      padding: 40px 60px;
+      box-shadow: 0 0 60px rgba(255, 204, 0, 0.3),
+                  0 0 80px rgba(0, 255, 0, 0.2),
+                  0 0 100px rgba(0, 153, 255, 0.2);
+    }
+
+    .clock {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .hour {
+      font-size: 90px;
+      font-weight: bold;
+      background: linear-gradient(to top, #0044ff, #a1c4fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .minute {
+      font-size: 60px;
+      font-weight: bold;
+      background: linear-gradient(to top, #fcb1d1, #ffe0e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .second {
+      font-size: 20px;
+      color: #ddd;
+      margin-left: 8px;
+    }
+
+    .colon {
+      font-size: 60px;
+      color: #ffffffa0;
+    }
+
+    .ampm {
+      font-size: 20px;
+      color: orange;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock-box">
+    <div class="clock">
+      <div class="hour">12</div>
+      <div class="colon">:</div>
+      <div class="minute">56</div>
+      <div class="ampm">PM</div>
+      <div class="second">60</div>
+    </div>
+  </div>
+
+  <script>
+
+    function updateClock(){
+        let hours=document.querySelector('.hour');
+        let minutes=document.querySelector('.minute');
+        let ampm=document.querySelector('.ampm');
+        let seconds=document.querySelector('.second');
+
+        let h=new Date().getHours();
+        let m=new Date().getMinutes();
+        let s=new Date().getSeconds();
+
+        let ampmUpdate= h >=12? "PM":"AM";
+        h=h<10? "0"+h:h;
+        s=s<10? "0"+s:s;
+        m=m<10? "0"+m:m;
+
+
+        hours.innerHTML=h;
+        minutes.innerHTML=m;
+        seconds.innerHTML=s;
+        ampm.innerHTML=ampmUpdate;
+
+
+
+    }
+
+    updateClock()
+    setInterval(updateClock,1000);
+
+  </script>
+</body>
+</html>
