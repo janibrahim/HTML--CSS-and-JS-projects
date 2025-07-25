@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #calculator {
+      background: #1e1e2f;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      width: 320px;
+    }
+
+    #display {
+      width: 290px;
+      height: 60px;
+      font-size: 28px;
+      text-align: right;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      background: #000000dd;
+      color: #00ffc8;
+      margin-bottom: 20px;
+      box-shadow: inset 0 0 5px #00ffc8;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .buttons button {
+      height: 60px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 15px;
+      cursor: not-allowed;
+      transition: 0.2s;
+      color: white;
+      background-color: #333;
+    }
+
+    .buttons button:nth-child(1) {
+      background-color: #ff3b3b; /* Clear */
+    }
+
+    .buttons button:nth-child(2),
+    .buttons button:nth-child(3),
+    .buttons button:nth-child(4),
+    .buttons button:nth-child(8),
+    .buttons button:nth-child(12),
+    .buttons button:nth-child(16) {
+      background-color: #2979ff; /* Operators */
+    }
+
+    .buttons button:nth-child(17) {
+      background-color: #ff9800; /* Equal */
+    }
+
+    .buttons button:nth-child(18) {
+      background-color: #4caf50; /* 0 */
+    }
+
+    .buttons button:hover {
+      opacity: 0.85;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="display" placeholder="0" readonly />
+        <div class="buttons">
+            <button id="reset">C</button>
+            <button>DEL</button>
+        <button>%</button>
+        <button>/</button>
+
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+
+        <button>=</button>
+        <button>.</button>
+        <button>0</button>
+    </div>
+  </div>
+
+  <script>
+
+
+      
+      let buttons=document.querySelectorAll('button');
+      let display=document.getElementById('display');
+      let string="";
+  
+      let BtnToArray=Array.from(buttons)
+      console.log(BtnToArray);
+  
+      BtnToArray.forEach(function(btn){
+          btn.addEventListener('click',function(event){
+              if(event.target.innerHTML==="DEL"){
+                  string=string.substring(0,string.length-1)
+                  display.value=string;
+              }else if(event.target.innerHTML==="C"){
+                      string="";
+                      display.value=string
+              }
+              else if(event.target.innerHTML=='='){
+                  string=eval(string);
+                  display.value=string;
+              }
+              
+              else{
+              string += (event.target.innerHTML);
+              display.value=string;
+              }
+          })
+      })
+
+  </script>
+</body>
+</html>
